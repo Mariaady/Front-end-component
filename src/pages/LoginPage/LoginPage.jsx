@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createUser, doLoginBack } from '../../core/services/userFetch'
 import { doLoginActions } from './LoginPageActions'
 import HomePage from '../HomePage/HomePage'
-import { useNavigate } from 'react-router'
+import { useNavigate, Navigate } from 'react-router'
 
 export const LoginPage = () => {
 
@@ -14,7 +14,7 @@ export const LoginPage = () => {
   const user = useSelector((state) => state.loginPageReducer.user)
 
   const dispatch = useDispatch()
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const handlerLoginInfo = (propName, propValue) => {
         setLoginInfo({
@@ -39,6 +39,7 @@ export const LoginPage = () => {
             }
         )
     )
+    navigate('/list')
   }
 
   const doRegister = async () => {
@@ -50,9 +51,12 @@ export const LoginPage = () => {
         }
        ) 
     )
-    // navigate('/login')
+    navigate('/list')
   }
 
+  const goToHome = async() => {
+    navigate('/')
+  }
   return (
     <>
       {
@@ -60,7 +64,8 @@ export const LoginPage = () => {
             <div>
                 <h1>PawTrip</h1>
                 <hr/>
-                <h2>Login</h2>
+                <h2>¿Ya estás registrado? </h2>
+                <p>Inicia sesión para descubrir los mejores destinos pet-friendly y planear tu próxima aventura junto a tu compañero de cuatro patas.</p>
                 <div>
                     <div>
                         <span>Username:</span>
@@ -72,6 +77,9 @@ export const LoginPage = () => {
                     </div>
                     <div>
                         <button onClick={doLogin}>Iniciar Sesión</button>
+                    </div>
+                    <div>
+                        <button onClick={goToHome}>Volver</button>
                     </div>
                     <hr/>
                     <div>
@@ -134,10 +142,13 @@ export const LoginPage = () => {
                     <div>
                         <button onClick={doRegister}>Registrarme</button>
                     </div>
+                    <div>
+                        <button onClick={goToHome}>Cancelar</button>
+                    </div>
                 </div>
             </div>
         ) : (
-            <HomePage/>
+            <Navigate to='list'/>
         )
       }
     </>

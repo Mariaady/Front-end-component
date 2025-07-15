@@ -15,7 +15,7 @@ export const doLoginBack = async (loginInfo) => {
 
 
 export const createUser = async (newUser) => {
-    const res = await fetch('http://localhost:3000/register', {
+    const res = await fetch('http://localhost:3000/user/register', {
         method:  'POST',
         headers: {
             'content-type': 'Application/json'
