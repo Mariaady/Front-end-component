@@ -5,8 +5,9 @@ import HomePage from './pages/HomePage/HomePage'
 import { Provider } from 'react-redux'
 import LoginPage from './pages/LoginPage/LoginPage'
 import ListPlacesPage from './pages/ListPlacesPage/ListPlacesPage'
-import DetailPlacesPage from './pages/DetailPlacesPage/DetailPlacesPage'
 import ContactPage from './pages/ContactPage/ContactPage'
+import MyProfilePage from './pages/MyProfile/MyProfilePage'
+import DetailPlacesPage from './pages/DetailPlacesPage/DetailPlacesPage'
 function App() {
  
 
@@ -17,8 +18,9 @@ function App() {
           <Route path="/" element={<HomePage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
           <Route path="/list" element={<ListPlacesPage/>}/>
-          <Route path="/detail" element={<DetailPlacesPage/>}/>
+          <Route path='/detail' element={<DetailPlacesPage/>}/>
           <Route path="/contact" element={<ContactPage/>}/>
+          <Route path="/myProfile" element={<MyProfilePage/>}/>
         </Routes>
       </BrowserRouter>
     </Provider>
