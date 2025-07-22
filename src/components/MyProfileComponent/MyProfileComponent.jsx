@@ -21,8 +21,8 @@ const MyProfileComponent = () => {
   }
 
   const save = () => {
-    modifyUser(user)
-    navigate('/list')
+    dispatch(modifyUser(userEdit))
+    setIsEdit(true)
   }
 
   const gotoList = () => {
@@ -37,29 +37,78 @@ const MyProfileComponent = () => {
       <div>
         <span>Nombre: </span>
         {isEdit ? (
-                <input
-                  type="text"
-                  placeholder={donut.sabor}
-                  onChange={(e) => donutHandler("sabor", e.target.value)}
-                />
+          <input
+          type="text"
+          placeholder={user.name}
+          onChange={(e) => userHandler("nombre", e.target.value)}
+          />
         ) : (
           <span> {user.name} </span>
         )}
       </div>
       <div>
-        <strong>Usuario: </strong> {user.username} 
+        <span>Usuario: </span>
+        {isEdit ? (
+          <input
+          type="text"
+          placeholder={user.username}
+          onChange={(e) => userHandler("usuario", e.target.value)}
+          />
+        ) : (
+          <span> {user.username} </span>
+        )}
       </div>
       <div>
-        <strong>Correo: </strong> {user.gmail} 
+        <span>Gmail: </span>
+        {isEdit ? (
+          <input
+          type="text"
+          placeholder={user.gmail}
+          onChange={(e) => userHandler("gmail", e.target.value)}
+          />
+        ) : (
+          <span> {user.gmail} </span>
+        )}
       </div>
       <div>
-        <strong>Foto de perfil: </strong> 
+        {isEdit && (
+          <div>
+            <label>Contraseña: </label>
+            <input
+            type="text"
+            placeholder= {user.password}
+            onChange={(e) => userHandler("password", e.target.value)}
+            />
+          </div>
+        )}
+      </div>
+      <div>
+        <span>Nombre: </span>
+        {isEdit ? (
+          <input
+          type="text"
+          placeholder={user.name}
+          onChange={(e) => userHandler("nombre", e.target.value)}
+          />
+        ) : (
+          <span> {user.name} </span>
+        )}
+      </div>
+      <div>
         <img src={user.profilePhoto} alt='Profile photo'/> 
       </div>
-      <div>
-        <button onClick={() => setIsEdit(true)}>Modificar</button>
-        <button onClick={gotoList}>Volver</button>
+      {!isEdit && (
+        <div>
+          <button onClick={() => setIsEdit(true)}>Modificar</button>
+          <button onClick={gotoList}>Volver</button>
       </div>
+      )}
+      {isEdit && (
+        <div>
+          <button onClick={save}>Guardar cambios</button>
+          <button onClick={() => setIsEdit(false)}>Cancelar</button>
+        </div>
+      )}
     </div>
   )
 }
