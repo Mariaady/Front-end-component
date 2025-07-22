@@ -25,13 +25,26 @@ const MyProfileComponent = () => {
     navigate('/list')
   }
 
+  const gotoList = () => {
+    navigate('/list')
+  }
+
   return (
     <div>
       <h2>Mi perfil</h2>
-      {isEdit ? 'EDITA TU PERFIL' : 'TUS DATOS'}
+      {isEdit ? 'EDITA TU PERFIL' : 'DATOS'}
       <hr/>
       <div>
-        <strong>Nombre: </strong> {user.name} 
+        <span>Nombre: </span>
+        {isEdit ? (
+                <input
+                  type="text"
+                  placeholder={donut.sabor}
+                  onChange={(e) => donutHandler("sabor", e.target.value)}
+                />
+        ) : (
+          <span> {user.name} </span>
+        )}
       </div>
       <div>
         <strong>Usuario: </strong> {user.username} 
@@ -43,7 +56,10 @@ const MyProfileComponent = () => {
         <strong>Foto de perfil: </strong> 
         <img src={user.profilePhoto} alt='Profile photo'/> 
       </div>
-
+      <div>
+        <button onClick={() => setIsEdit(true)}>Modificar</button>
+        <button onClick={gotoList}>Volver</button>
+      </div>
     </div>
   )
 }

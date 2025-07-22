@@ -45,3 +45,20 @@ export const modifyUser = async (user) => {
     const result = await res.json()
     return result
 }
+
+export const addBooking = async (userId, placeId) => {
+    const res = await fetch('http://localhost:3000/user/addBooking', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+            {
+                userId,
+                placeId
+            }
+        )
+    })
+    const result = await res.json()
+    return result
+}

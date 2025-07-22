@@ -22,7 +22,6 @@ const ListPlacesComponent = () => {
   };
 
   const goToDetail = (id) => {
-    console.log('Dispatching placeId:', id);
     dispatch(detailPlacesAction(id))
     navigate('/detail')
   }

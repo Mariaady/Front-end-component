@@ -8,6 +8,7 @@ import ListPlacesPage from './pages/ListPlacesPage/ListPlacesPage'
 import ContactPage from './pages/ContactPage/ContactPage'
 import MyProfilePage from './pages/MyProfile/MyProfilePage'
 import DetailPlacesPage from './pages/DetailPlacesPage/DetailPlacesPage'
+import BookingPage from './pages/BookingPage/BookingPage'
 function App() {
  
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/detail' element={<DetailPlacesPage/>}/>
           <Route path="/contact" element={<ContactPage/>}/>
           <Route path="/myProfile" element={<MyProfilePage/>}/>
+          <Route path='/booking' element={<BookingPage/>}/>
         </Routes>
       </BrowserRouter>
     </Provider>
