@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router'
+import { IoMdHome,IoIosContact  } from "react-icons/io";
+import { FaSearchLocation, FaPhoneAlt, FaBookmark } from "react-icons/fa";
 
 const MenuComponent = () => {
 
@@ -10,9 +12,11 @@ const MenuComponent = () => {
   
   return (
     <div style={{display: 'flex', justifyContent: 'center', gap: 50, backgroundColor: "#f8f9fa", borderRadius: 20, boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)", padding: "15px 30px"}}>
-      <Link to ={'/'} style={{ display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}>Inicio</Link>
-      <Link to ={'/list'} style={{ display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}>Explorar lugares</Link>
-      <Link to ={'/contact'} style={{ display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}>Contacto</Link>
+      <Link to ={'/'} style={{ display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}> <IoMdHome />Inicio</Link>
+      <Link to ={'/list'} style={{ display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}><FaSearchLocation />Explorar lugares</Link>
+      <Link to ={'/booking'} style={{display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}><FaBookmark />Mis reservas</Link>
+      <Link to ={'/myProfile'} style={{display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}><IoIosContact />Perfil</Link>
+      <Link to ={'/contact'} style={{ display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}> <FaPhoneAlt />Contacto</Link>
     </div>
   )
 }

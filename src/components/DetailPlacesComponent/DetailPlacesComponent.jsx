@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { getPlaceDetail } from "../../core/services/placesFetch";
 import { saveDetailPlaces } from "./DetailPlacesAction";
 import { addBooking } from "../../core/services/userFetch";
-import { loadPlacesActions } from "../ListPlacesComponent/ListPlacesAction";
+import { loadInfoActions } from "../../pages/LoginPage/LoginPageActions";
 
 const DetailPlacesComponent = () => {
   const dispatch = useDispatch();
@@ -14,11 +14,11 @@ const DetailPlacesComponent = () => {
     (state) => state.detailPlaceReducer
   );
   const user = useSelector((state) => state.loginPageReducer.user);
-  console.log("Usuario en DetailPlacesComponent:", user);
 
   const goToList = () => {
     navigate("/list");
   };
+
   useEffect(() => {
     if (!placeId) return;
 
@@ -32,52 +32,107 @@ const DetailPlacesComponent = () => {
   const addBookingFn = async (placeId) => {
     const res = await addBooking(user.id, placeId);
     dispatch(
-      loadPlacesActions({
+      loadInfoActions({
         user: res.user,
       })
     );
+    navigate("/booking");
   };
 
   return (
-    <div>
-      <h2>Detalle del lugar</h2>
-      {!placeDetail ? (
+    <div style={{ fontFamily: "Verdana" }}>
+      <h2>Todo lo que necesitas saber</h2>
+      {!placeDetail || !placeDetail.id ? (
         <div>Loading detail...</div>
       ) : (
         <>
           <div
             style={{
               display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: "1rem",
+              gap: "2rem",
+              padding: "2rem",
+              border: "1px solid #ddd",
+              borderRadius: "12px",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+              backgroundColor: "#fff",
+              maxWidth: "1000px",
+              margin: "2rem auto",
+              alignItems: "flex-start",
             }}
           >
-            <div>
+            <div style={{ flex: "1" }}>
               <div>
-                <img src={placeDetail.photo} alt="" />
+                <img
+                  src={placeDetail.photo}
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: "12px",
+                    objectFit: "cover",
+                  }}
+                />
               </div>
             </div>
-            <div>
+            <div
+              style={{
+                flex: "1",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+              }}
+            >
+              <h2 style={{ marginBottom: 0 }}> {placeDetail.name}</h2>
+              <p style={{ margin: 0, fontWeight: "bold" }}>
+                {" "}
+                {placeDetail.location}
+              </p>
+              <p style={{ margin: 0 }}> Categoría: {placeDetail.category}</p>
+              <p> {placeDetail.description}</p>
               <div>
-                <span> {placeDetail.name}</span>
-              </div>
-              <div>
-                <span> {placeDetail.location}</span>
-              </div>
-              <div>
-                <span> {placeDetail.category}</span>
-              </div>
-              <div>
-                <span> {placeDetail.description}</span>
+                <button
+                  onClick={() => addBookingFn(placeDetail.id)}
+                  style={{
+                    padding: "8px 15px",
+                    backgroundColor: "rgba(122, 92, 63, 0.8)",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "15px",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.transform = "scale(1.02)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.transform = "scale(1)")
+                  }
+                >
+                  Reservar
+                </button>
               </div>
             </div>
           </div>
           <div>
-            <button onClick={() => addBookingFn(placeDetail.id)}>
-              Reservar
+            <button
+              onClick={goToList}
+              style={{
+                backgroundColor: "rgba(205, 155, 101, 0.7)",
+                padding: "5px 16px",
+                borderRadius: "8px",
+                border: "none",
+                color: "#fff",
+                fontSize: "1rem",
+                cursor: "pointer",
+                boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                transition: "transform 0.2s ease",
+                marginTop: "20px",
+                fontFamily: "Verdana",
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+              onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            >
+              Volver
             </button>
-            <button onClick={goToList}>Volver</button>
           </div>
         </>
       )}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
 import { modifyUser } from '../../core/services/userFetch'
+import { loadInfoActions } from '../../pages/LoginPage/LoginPageActions'
 
 const MyProfileComponent = () => {
 
@@ -12,7 +13,7 @@ const MyProfileComponent = () => {
 
   const [userEdit, setUserEdit] = useState(undefined)
   const [isEdit, setIsEdit] = useState(undefined)
-
+  
   const userHandler = (propName, propValue) => {
     setUserEdit({
       ...user,
@@ -20,9 +21,15 @@ const MyProfileComponent = () => {
     })
   }
 
-  const save = () => {
-    dispatch(modifyUser(userEdit))
-    setIsEdit(true)
+  const save =  async () => {
+    const userEdited = await modifyUser(userEdit)
+    dispatch(
+      loadInfoActions(
+        {
+          user: userEdited
+        }
+      ))
+    setIsEdit(false)
   }
 
   const gotoList = () => {

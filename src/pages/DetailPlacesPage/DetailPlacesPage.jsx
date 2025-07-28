@@ -6,7 +6,6 @@ const DetailPlacesPage = () => {
   return (
     <div>
         <MenuComponent/>
-        <hr/>
         <DetailPlacesComponent/>
     </div>
   )

@@ -1,14 +1,33 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
+import { removeBooking } from '../../core/services/userFetch'
+import { loadInfoActions } from '../../pages/LoginPage/LoginPageActions'
 
 const BookingComponent = () => {
 
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
   const user = useSelector((state) => state.loginPageReducer.user)
-  const places = useSelector((state) => state.listPlacesReducer.places);
+  const places = useSelector((state) => state.listPlacesReducer.places) || [];
   
   const matchPlaces = (placeId) => {
     const res = places.find(p => p.id == placeId)
+    console.log('res',placeId);
     return res
+  }
+
+  const goToDetail = () => {
+    navigate('/detail')
+  }
+
+  const removeBookingFn = async (placeId) => {
+    const res = await removeBooking(user.id, placeId)
+    dispatch(
+      loadInfoActions({
+      user: res.user
+    }))
   }
 
   return (
@@ -28,13 +47,16 @@ const BookingComponent = () => {
                 </div>
                 <div>{p.name}</div>
                 <div>{p.location}</div>
-                <div>{p.category}</div>
                 <div>{p.description}</div>
+                <button onClick={() => removeBookingFn(p.id)}>Cancelar reserva</button>
               </div>
             )
           })
         )
       }
+      <div>
+        <button onClick={goToDetail}>Volver</button>
+      </div>
     </div>
   )
 }

@@ -12,6 +12,8 @@ const HomePage = () => {
         overflowX: "hidden",
         boxSizing: "border-box",
         margin: 0,
+        fontFamily: "'Segoe UI', sans-serif",
+        color: "#2e2e2e",
       }}
     >
       <div
@@ -32,7 +34,10 @@ const HomePage = () => {
         style={{
           position: "relative",
           zIndex: 1,
-          padding: "2rem",
+           padding: "4rem 2rem",
+          textAlign: "center",
+          maxWidth: "900px",
+          margin: "0 auto",
         }}
       >
         <div
@@ -40,25 +45,24 @@ const HomePage = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            marginBottom: "1rem",
+            gap: "1.5rem",
+            marginBottom: "2rem",
           }}
         >
           <img
             src="/PawTrip Logo.png"
             alt="PawTrip Logo"
             style={{
-              top: "1rem",
-              left: "1rem",
-              width: "160px",
+                width: "100px",
               height: "auto",
-              objectFit: "contain",
             }}
           />
           <h1
             style={{
-              fontSize: "60px",
+              fontSize: "3.75rem",
               color: "rgba(144, 110, 76, 0.8)",
-              textShadow: "0 2px 8px rgba(92, 53, 26,0.4)",
+              textShadow: "0 1px 4px rgba(0,0,0,0.2)",
+              letterSpacing: "1px",
               fontFamily: "Tahoma",
               marginBottom: "1rem",
               fontWeight: 800,
@@ -81,6 +85,7 @@ const HomePage = () => {
             marginBottom: "1rem",
             textShadow: "0 2px 6px rgba(0,0,0,0.2)",
             fontFamily: "Verdana",
+            fontWeight: 600,
           }}
         >
           Donde tú vas, tu mascota también
@@ -90,7 +95,6 @@ const HomePage = () => {
             fontSize: "1.2rem",
             lineHeight: "1.8",
             marginBottom: "1.5rem",
-            textShadow: "0 1px 4px rgba(0,0,0,0.4)",
             fontFamily: "Verdana",
           }}
         >
@@ -102,7 +106,6 @@ const HomePage = () => {
             fontSize: "1.2rem",
             lineHeight: "1.8",
             marginBottom: "2rem",
-            textShadow: "0 1px 4px rgba(0,0,0,0.4)",
             fontFamily: "Verdana",
           }}
         >
@@ -113,15 +116,16 @@ const HomePage = () => {
         <div>
           <button
             style={{
-              backgroundColor: "rgba(255, 126, 95,0.8)",
+              backgroundColor: "rgba(122, 92, 63, 0.8)",
               padding: "0.8rem 2rem",
               borderRadius: "8px",
               border: "none",
               color: "#fff",
               fontSize: "1rem",
               cursor: "pointer",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+              boxShadow: "0 6px 16px rgba(0,0,0,0.2)",
               transition: "transform 0.2s ease",
+              display: "inline-block",
             }}
             onMouseOver={(e) =>
               (e.currentTarget.style.transform = "scale(1.05)")
@@ -141,7 +145,6 @@ const HomePage = () => {
             fontSize: "1.2rem",
             lineHeight: "1.8",
             marginBottom: "2rem",
-            textShadow: "0 1px 4px rgba(0,0,0,0.4)",
             fontFamily: "Verdana",
           }}
         >
