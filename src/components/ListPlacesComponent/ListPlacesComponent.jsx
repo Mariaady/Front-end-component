@@ -22,8 +22,8 @@ const ListPlacesComponent = () => {
     );
   };
 
-  const goToDetail = (id) => {
-    dispatch(detailPlacesAction(id));
+  const goToDetail = (placeId) => {
+    dispatch(detailPlacesAction(placeId));
     navigate("/detail");
   };
 
@@ -73,7 +73,7 @@ const ListPlacesComponent = () => {
           transition: 'transform 0.2s',
           cursor: 'pointer'
         }}
-        onClick={() => goToDetail(p.id)}
+        onClick={() => goToDetail(p._id)}
         onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'}
         onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
       >
@@ -98,7 +98,9 @@ const ListPlacesComponent = () => {
             border: 'none',
             borderRadius: '15px',
             cursor: 'pointer'
-          }}>
+          }}
+           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+              onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}>
             Ver detalle
           </button>
         </div>

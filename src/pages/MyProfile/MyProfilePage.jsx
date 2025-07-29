@@ -1,10 +1,12 @@
 import React from 'react'
 import MyProfileComponent from '../../components/MyProfileComponent/MyProfileComponent'
+import MenuComponent from '../../components/MenuComponent/MenuComponent'
 
 const MyProfilePage = () => {
   return (
     <div>
-        <MyProfileComponent/>
+      <MenuComponent/>
+      <MyProfileComponent/>
     </div>
   )
 }

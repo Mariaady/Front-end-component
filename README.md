@@ -1,3 +1,4 @@
-# React + Vite
+# Front-end-component
 
-En un proyecto real separaría el archivo placesService.js por categorias.
+
+

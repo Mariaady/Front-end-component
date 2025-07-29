@@ -30,6 +30,8 @@ export const LoginPage = () => {
 
   const doLogin = async () => {
     const res = await doLoginBack(loginInfo);
+    console.log("Login response:", res);
+    localStorage.setItem("token", res.token);
     dispatch(
       doLoginActions({
         user: res.user,
@@ -187,7 +189,7 @@ export const LoginPage = () => {
                           Contraseña:{" "}
                         </span>
                         <input
-                          type="text"
+                          type="password"
                           onChange={(e) =>
                             handlerLoginInfo("password", e.target.value)
                           }
@@ -339,7 +341,7 @@ export const LoginPage = () => {
                         <div>
                           <span>Contraseña: </span>
                           <input
-                            type="text"
+                            type="password"
                             onChange={(e) =>
                               handlerRegisterInfo("password", e.target.value)
                             } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}

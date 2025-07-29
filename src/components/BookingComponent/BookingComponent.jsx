@@ -13,13 +13,13 @@ const BookingComponent = () => {
   const places = useSelector((state) => state.listPlacesReducer.places) || [];
   
   const matchPlaces = (placeId) => {
-    const res = places.find(p => p.id == placeId)
+    const res = places.find(p => p._id == placeId)
     console.log('res',placeId);
     return res
   }
 
-  const goToDetail = () => {
-    navigate('/detail')
+  const goToList = () => {
+    navigate('/list')
   }
 
   const removeBookingFn = async (placeId) => {
@@ -31,7 +31,8 @@ const BookingComponent = () => {
   }
 
   return (
-    <div>
+    <div style={{ fontFamily: "Verdana" }}>
+      
       <h2>Tus Reservas:</h2>
       {
         !user.cart ? (
@@ -48,14 +49,43 @@ const BookingComponent = () => {
                 <div>{p.name}</div>
                 <div>{p.location}</div>
                 <div>{p.description}</div>
-                <button onClick={() => removeBookingFn(p.id)}>Cancelar reserva</button>
+                <button onClick={() => removeBookingFn(p._id)} style={{
+                backgroundColor: "rgba(227, 98, 78, 0.7)",
+                padding: "5px 16px",
+                borderRadius: "8px",
+                border: "none",
+                color: "#fff",
+                fontSize: "1rem",
+                cursor: "pointer",
+                boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                transition: "transform 0.2s ease",
+                marginTop: "20px",
+                fontFamily: "Verdana",
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+              onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")} >Cancelar reserva</button>
               </div>
             )
           })
         )
       }
       <div>
-        <button onClick={goToDetail}>Volver</button>
+        <button onClick={goToList}
+              style={{
+                backgroundColor: "rgba(205, 155, 101, 0.7)",
+                padding: "5px 16px",
+                borderRadius: "8px",
+                border: "none",
+                color: "#fff",
+                fontSize: "1rem",
+                cursor: "pointer",
+                boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                transition: "transform 0.2s ease",
+                marginTop: "20px",
+                fontFamily: "Verdana",
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+              onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}>Volver</button>
       </div>
     </div>
   )

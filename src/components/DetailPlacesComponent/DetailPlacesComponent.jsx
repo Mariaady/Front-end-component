@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { getPlaceDetail } from "../../core/services/placesFetch";
+import { deletePlace, getPlaceDetail } from "../../core/services/placesFetch";
 import { saveDetailPlaces } from "./DetailPlacesAction";
 import { addBooking } from "../../core/services/userFetch";
 import { loadInfoActions } from "../../pages/LoginPage/LoginPageActions";
@@ -18,13 +18,12 @@ const DetailPlacesComponent = () => {
   const goToList = () => {
     navigate("/list");
   };
-
-  useEffect(() => {
+ 
+  useEffect(() => { 
     if (!placeId) return;
-
     const loadPlaceDetail = async () => {
       const aux = await getPlaceDetail(placeId);
-      dispatch(saveDetailPlaces(aux.place));
+      dispatch(saveDetailPlaces(aux));
     };
     loadPlaceDetail();
   }, [placeId]);
@@ -39,10 +38,15 @@ const DetailPlacesComponent = () => {
     navigate("/booking");
   };
 
+  const deletePlaceFn = async () => {
+    await deletePlace(placeDetail._id)
+    navigate('/list')
+  }
+  
   return (
     <div style={{ fontFamily: "Verdana" }}>
       <h2>Todo lo que necesitas saber</h2>
-      {!placeDetail || !placeDetail.id ? (
+      {!placeDetail || !placeDetail._id ? (
         <div>Loading detail...</div>
       ) : (
         <>
@@ -89,9 +93,9 @@ const DetailPlacesComponent = () => {
               </p>
               <p style={{ margin: 0 }}> Categoría: {placeDetail.category}</p>
               <p> {placeDetail.description}</p>
-              <div>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: 20}}>
                 <button
-                  onClick={() => addBookingFn(placeDetail.id)}
+                  onClick={() => addBookingFn(placeDetail._id)}
                   style={{
                     padding: "8px 15px",
                     backgroundColor: "rgba(122, 92, 63, 0.8)",
@@ -109,6 +113,22 @@ const DetailPlacesComponent = () => {
                 >
                   Reservar
                 </button>
+              {user?.role === 'admin' && (
+                <button onClick={deletePlaceFn} style={{
+                    padding: "8px 15px",
+                    backgroundColor: "rgba(212, 61, 61, 0.8)",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "15px",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.transform = "scale(1.02)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.transform = "scale(1)")
+                  }>Eliminar</button>
+              )}
               </div>
             </div>
           </div>
