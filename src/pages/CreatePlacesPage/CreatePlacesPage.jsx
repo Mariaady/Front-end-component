@@ -1,71 +1,206 @@
-import React from 'react'
-import { useState } from 'react'
-import { useNavigate } from 'react-router'
-import { useSelector } from 'react-redux'
-import { createPlace } from '../../core/services/placesFetch'
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
+import { createPlace } from "../../core/services/placesFetch";
 
 const CreatePlacesPage = () => {
+  const navigate = useNavigate();
+  const [createPlaceInfo, setCreatePlaceInfo] = useState({});
+  const user = useSelector((state) => state.loginPageReducer.user);
 
-    const navigate = useNavigate()
-    const [createPlaceInfo, setCreatePlaceInfo] = useState({})
-    const user = useSelector((state) => state.loginPageReducer.user)
+  const createPlaceHandler = (propName, propValue) => {
+    setCreatePlaceInfo({
+      ...createPlaceInfo,
+      [propName]: propValue,
+    });
+  };
 
-    const createPlaceHandler = (propName, propValue) => {
-        setCreatePlaceInfo({
-            ...createPlaceInfo,
-            [propName]: propValue
-        })
-    }
+  const doCreate = async () => {
+    const res = await createPlace(createPlaceInfo);
+    navigate("/list");
+  };
 
-    const doCreate = async () => {
-        const res = await createPlace(createPlaceInfo)
-        navigate('/list')
-    }
+  const cancel = () => {
+    navigate("/list");
+  };
 
-    const cancel = () => {
-        navigate('/list')
-    }
+  if (!user || user.role !== "admin") {
+    return <p>No tienes permisos para crear lugares.</p>;
+  }
 
-    if (!user || user.role !== 'admin') {
-        return <p>No tienes permisos para crear lugares.</p>
-    }
-    
   return (
-    <div>
-        <h2>CREA UN NUEVO LUGAR:</h2>
+    <div style={{ display: "flex", height: "100vh", fontFamily: "Verdana" }}>
+      <div
+        style={{
+          width: "50%",
+          display: "flex",
+          padding: "40px",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#f5f5f5",
+        }}
+      >
+        <img
+          src="/addPlacePage.jpg"
+          alt="Add Place logo"
+          style={{
+            width: "100vh",
+            height: "100%",
+            objectFit: "cover",
+            borderRadius: "8px",
+            opacity: 0.5,
+            backgroundColor: "#fff",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          width: "50%",
+          padding: "40px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          backgroundColor: "#fff",
+          borderRadius: "12px",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+        }}
+      >
+        <h2
+          style={{ fontWeight: "bold", fontSize: "28px", marginBottom: "20px" }}
+        >
+          AÑADE UN NUEVO LUGAR:
+        </h2>
         <div>
-            <div>
-                <span>Nombre del lugar:</span>
-                <input type='text' onChange={(e) => createPlaceHandler('name', e.target.value)}/>
-            </div>
-             <div>
-                <span>Ubicación:</span>
-                <input type='text' onChange={(e) => createPlaceHandler('location', e.target.value)}/>
-            </div>
-             <div>
-                <label>Categoría</label>
-                <select onChange={(e) => createPlaceHandler('category', e.target.value)} defaultValue="">
-                    <option value="" disabled>Selecciona una categoría</option>
-                    <option value="parque">Parque</option>
-                    <option value="playa">Playa</option>
-                    <option value="hotel">Hotel</option>
-                    <option value="restaurante">Restaurante</option>
-                    <option value="area_descanso">Area de descanso</option>
-                </select>
-            </div>
-             <div>
-                <span>Descripción:</span>
-                <input type='text' onChange={(e) => createPlaceHandler('description', e.target.value)}/>
-            </div>
-             <div>
-                <span>Foto:</span>
-                <input type='text' onChange={(e) => createPlaceHandler('photo', e.target.value)}/>
-            </div>
+          <div>
+            <span>Nombre del lugar:</span>
+            <input
+              type="text"
+              onChange={(e) => createPlaceHandler("name", e.target.value)}
+              style={{
+                borderRadius: "8px",
+                borderColor: "rgba(92, 53, 26, 0.5)",
+                marginLeft: 10,
+              }}
+            />
+          </div>
+          <div>
+            <span>Ubicación:</span>
+            <input
+              type="text"
+              onChange={(e) => createPlaceHandler("location", e.target.value)}
+              style={{
+                borderRadius: "8px",
+                borderColor: "rgba(92, 53, 26, 0.5)",
+                marginLeft: 10,
+              }}
+            />
+          </div>
+          <div>
+            <label>Categoría</label>
+            <select
+              onChange={(e) => createPlaceHandler("category", e.target.value)}
+              defaultValue=""
+              style={{
+                borderRadius: "8px",
+                borderColor: "rgba(92, 53, 26, 0.5)",
+                marginLeft: 10,
+              }}
+            >
+              <option value="" disabled>
+                Selecciona una categoría
+              </option>
+              <option value="parque">Parque</option>
+              <option value="playa">Playa</option>
+              <option value="hotel">Hotel</option>
+              <option value="restaurante">Restaurante</option>
+              <option value="area_descanso">Area de descanso</option>
+            </select>
+          </div>
+          <div>
+            <span>Descripción:</span>
+            <input
+              type="text"
+              onChange={(e) =>
+                createPlaceHandler("description", e.target.value)
+              }
+              style={{
+                borderRadius: "8px",
+                borderColor: "rgba(92, 53, 26, 0.5)",
+                marginLeft: 10,
+              }}
+            />
+          </div>
+          <div>
+            <span>Foto:</span>
+            <input
+              type="text"
+              onChange={(e) => createPlaceHandler("photo", e.target.value)}
+              style={{
+                borderRadius: "8px",
+                borderColor: "rgba(92, 53, 26, 0.5)",
+                marginLeft: 10,
+              }}
+            />
+          </div>
         </div>
-        <button onClick={doCreate}>Crear</button>
-        <button onClick={cancel}>Cancelar</button>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: 40,
+            marginTop: 20,
+          }}
+        >
+          <button
+            onClick={doCreate}
+            style={{
+              backgroundColor: "rgba(205, 155, 101, 0.75)",
+              padding: "5px 16px",
+              borderRadius: "8px",
+              border: "none",
+              color: "#fff",
+              fontSize: "1rem",
+              cursor: "pointer",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+              transition: "transform 0.2s ease",
+              marginTop: "20px",
+              fontFamily: "Verdana",
+            }}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.transform = "scale(1.05)")
+            }
+            onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            Añadir
+          </button>
+          <button
+            onClick={cancel}
+            style={{
+              backgroundColor: "rgba(227, 98, 78, 0.7)",
+              padding: "5px 16px",
+              borderRadius: "8px",
+              border: "none",
+              color: "#fff",
+              fontSize: "1rem",
+              cursor: "pointer",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+              transition: "transform 0.2s ease",
+              marginTop: "20px",
+              fontFamily: "Verdana",
+            }}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.transform = "scale(1.05)")
+            }
+            onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default CreatePlacesPage
+export default CreatePlacesPage;

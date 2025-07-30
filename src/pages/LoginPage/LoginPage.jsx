@@ -14,13 +14,14 @@ export const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  
   const handlerLoginInfo = (propName, propValue) => {
     setLoginInfo({
       ...loginInfo,
       [propName]: propValue,
     });
   };
-
+  
   const handlerRegisterInfo = (propName, propValue) => {
     setRegisterInfo({
       ...registerInfo,
@@ -28,9 +29,39 @@ export const LoginPage = () => {
     });
   };
 
+  const validateLoginFields = () => {
+    const {username, password } = loginInfo 
+    if(!username || !password) {
+      alert("El usuario y contraseña son obligatorios")
+      return false
+    }
+    if(password.length < 4) {
+      alert("La contraseña debe contener al menos 4 carácteres")
+      return false
+    }
+    return true
+  }
+
+  const validateRegisterFields = () => {
+    const {name, username, password, gmail, namePet, breed, size, age} = registerInfo
+    if(!name || !username || !password || !gmail || !namePet || !breed || !size || !age ) {
+      alert("Por favor, asegúrese de que todos los campos han sido rellenados")
+      return false
+    }
+    if(!password.length < 6) {
+      alert("La contraseña debe contener al menos 6 carácteres")
+      return false
+    }
+    return true
+  }
+  
   const doLogin = async () => {
+    if(!validateLoginFields()) return
     const res = await doLoginBack(loginInfo);
-    console.log("Login response:", res);
+    if(!res || !res.token || !res.user) {
+      alert('Usuario o contraseña incorrectos')
+      return
+    }
     localStorage.setItem("token", res.token);
     dispatch(
       doLoginActions({
@@ -41,6 +72,7 @@ export const LoginPage = () => {
   };
 
   const doRegister = async () => {
+    if(!validateRegisterFields()) return
     const res = await createUser(registerInfo);
     dispatch(
       doLoginActions({
@@ -177,6 +209,7 @@ export const LoginPage = () => {
                         </span>
                         <input
                           type="text"
+                          placeholder="username"
                           onChange={(e) =>
                             handlerLoginInfo("username", e.target.value)
                           }
@@ -190,6 +223,7 @@ export const LoginPage = () => {
                         </span>
                         <input
                           type="password"
+                          placeholder="******"
                           onChange={(e) =>
                             handlerLoginInfo("password", e.target.value)
                           }
@@ -324,6 +358,7 @@ export const LoginPage = () => {
                           <span>Nombre: </span>
                           <input
                             type="text"
+                            placeholder="nombre"
                             onChange={(e) =>
                               handlerRegisterInfo("name", e.target.value)
                             } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
@@ -333,6 +368,7 @@ export const LoginPage = () => {
                           <span>Usuario: </span>
                           <input
                             type="text"
+                            placeholder="usuario"
                             onChange={(e) =>
                               handlerRegisterInfo("username", e.target.value)
                             } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
@@ -342,6 +378,7 @@ export const LoginPage = () => {
                           <span>Contraseña: </span>
                           <input
                             type="password"
+                            placeholder="******"
                             onChange={(e) =>
                               handlerRegisterInfo("password", e.target.value)
                             } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
@@ -351,6 +388,7 @@ export const LoginPage = () => {
                           <span>Correo: </span>
                           <input
                             type="text"
+                            placeholder="example@gmail.com"
                             onChange={(e) =>
                               handlerRegisterInfo("gmail", e.target.value)
                             } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
@@ -371,6 +409,7 @@ export const LoginPage = () => {
                         <span>Nombre: </span>
                         <input
                           type="text"
+                          placeholder="nombre"
                           onChange={(e) =>
                             handlerRegisterInfo("namePet", e.target.value)
                           } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
@@ -382,6 +421,7 @@ export const LoginPage = () => {
                           onChange={(e) =>
                             handlerRegisterInfo("namePet", e.target.value)
                           } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
+                          defaultValue=""
                         >
                           <option value=""> Selecciona una especie </option>
                           <option value="perro"> Perro </option>
@@ -392,6 +432,7 @@ export const LoginPage = () => {
                         <span>Raza: </span>
                         <input
                           type="text"
+                          placeholder="raza"
                           onChange={(e) =>
                             handlerRegisterInfo("breed", e.target.value)
                           } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
@@ -403,6 +444,7 @@ export const LoginPage = () => {
                           onChange={(e) =>
                             handlerRegisterInfo("size", e.target.value)
                           } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
+                          defaultValue=""
                         >
                           <option value=""> Selecciona un tamaño</option>
                           <option value="grande"> Grande </option>
@@ -431,7 +473,7 @@ export const LoginPage = () => {
                     >
                       <div>
                         <button onClick={doRegister}  style={{
-                              backgroundColor: "rgba(144, 110, 76, 0.8)",
+                              backgroundColor: "rgba(205, 155, 101, 0.75)",
                               padding: "5px 16px",
                               borderRadius: "8px",
                               border: "none",
@@ -452,7 +494,7 @@ export const LoginPage = () => {
                       </div>
                       <div>
                         <button onClick={goToHome} style={{
-                              backgroundColor: "rgba(205, 155, 101, 0.75)",
+                              backgroundColor: "rgba(227, 98, 78, 0.7)",
                               padding: "5px 16px",
                               borderRadius: "8px",
                               border: "none",

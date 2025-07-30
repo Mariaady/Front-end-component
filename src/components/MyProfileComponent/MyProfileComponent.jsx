@@ -199,6 +199,15 @@ const MyProfileComponent = () => {
                 <div>
                   <span>
                     {isEdit ? (
+                      <input type="text" placeholder={pet.size} />
+                    ) : (
+                      pet.size
+                    )}
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    {isEdit ? (
                       <input type="text" placeholder={pet.age} />
                     ) : (
                       pet.age

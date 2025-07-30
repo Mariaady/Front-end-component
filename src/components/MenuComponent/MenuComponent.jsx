@@ -15,7 +15,7 @@ const MenuComponent = () => {
       <Link to ={'/'} style={{ display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}> <IoMdHome />Inicio</Link>
       <Link to ={'/list'} style={{ display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}><FaSearchLocation />Explorar lugares</Link>
       <Link to ={'/booking'} style={{display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}><FaBookmark />Mis reservas</Link>
-      <Link to={'/create'} style={{display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}><IoMdCreate />Crear lugar</Link>
+      <Link to={'/create'} style={{display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}><IoMdCreate />Añadir lugar</Link>
       <Link to ={'/myProfile'} style={{display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}><IoIosContact />Perfil</Link>
       <Link to ={'/contact'} style={{ display: 'flex', alignItems: 'center', gap: '8px', color:'#030200', fontFamily: 'Verdana'}}> <FaPhoneAlt />Contacto</Link>
     </div>
