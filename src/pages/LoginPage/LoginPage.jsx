@@ -14,14 +14,13 @@ export const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
   const handlerLoginInfo = (propName, propValue) => {
     setLoginInfo({
       ...loginInfo,
       [propName]: propValue,
     });
   };
-  
+
   const handlerRegisterInfo = (propName, propValue) => {
     setRegisterInfo({
       ...registerInfo,
@@ -30,37 +29,47 @@ export const LoginPage = () => {
   };
 
   const validateLoginFields = () => {
-    const {username, password } = loginInfo 
-    if(!username || !password) {
-      alert("El usuario y contraseña son obligatorios")
-      return false
+    const { username, password } = loginInfo;
+    if (!username || !password) {
+      alert("El usuario y contraseña son obligatorios");
+      return false;
     }
-    if(password.length < 4) {
-      alert("La contraseña debe contener al menos 4 carácteres")
-      return false
+    if (password.length < 4) {
+      alert("La contraseña debe contener al menos 4 carácteres");
+      return false;
     }
-    return true
-  }
+    return true;
+  };
 
   const validateRegisterFields = () => {
-    const {name, username, password, gmail, namePet, breed, size, age} = registerInfo
-    if(!name || !username || !password || !gmail || !namePet || !breed || !size || !age ) {
-      alert("Por favor, asegúrese de que todos los campos han sido rellenados")
-      return false
+    const { name, username, password, gmail, namePet, breed, size, age } =
+      registerInfo;
+    if (
+      !name ||
+      !username ||
+      !password ||
+      !gmail ||
+      !namePet ||
+      !breed ||
+      !size ||
+      !age
+    ) {
+      alert("Por favor, asegúrese de que todos los campos han sido rellenados");
+      return false;
     }
-    if(!password.length < 6) {
-      alert("La contraseña debe contener al menos 6 carácteres")
-      return false
+    if (!password.length < 6) {
+      alert("La contraseña debe contener al menos 6 carácteres");
+      return false;
     }
-    return true
-  }
-  
+    return true;
+  };
+
   const doLogin = async () => {
-    if(!validateLoginFields()) return
+    if (!validateLoginFields()) return;
     const res = await doLoginBack(loginInfo);
-    if(!res || !res.token || !res.user) {
-      alert('Usuario o contraseña incorrectos')
-      return
+    if (!res || !res.token || !res.user) {
+      alert("Usuario o contraseña incorrectos");
+      return;
     }
     localStorage.setItem("token", res.token);
     dispatch(
@@ -72,7 +81,7 @@ export const LoginPage = () => {
   };
 
   const doRegister = async () => {
-    if(!validateRegisterFields()) return
+    if (!validateRegisterFields()) return;
     const res = await createUser(registerInfo);
     dispatch(
       doLoginActions({
@@ -361,7 +370,11 @@ export const LoginPage = () => {
                             placeholder="nombre"
                             onChange={(e) =>
                               handlerRegisterInfo("name", e.target.value)
-                            } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
+                            }
+                            style={{
+                              borderRadius: "8px",
+                              borderColor: "rgba(92, 53, 26, 0.5)",
+                            }}
                           />
                         </div>
                         <div>
@@ -371,7 +384,11 @@ export const LoginPage = () => {
                             placeholder="usuario"
                             onChange={(e) =>
                               handlerRegisterInfo("username", e.target.value)
-                            } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
+                            }
+                            style={{
+                              borderRadius: "8px",
+                              borderColor: "rgba(92, 53, 26, 0.5)",
+                            }}
                           />
                         </div>
                         <div>
@@ -381,7 +398,11 @@ export const LoginPage = () => {
                             placeholder="******"
                             onChange={(e) =>
                               handlerRegisterInfo("password", e.target.value)
-                            } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
+                            }
+                            style={{
+                              borderRadius: "8px",
+                              borderColor: "rgba(92, 53, 26, 0.5)",
+                            }}
                           />
                         </div>
                         <div>
@@ -391,7 +412,11 @@ export const LoginPage = () => {
                             placeholder="example@gmail.com"
                             onChange={(e) =>
                               handlerRegisterInfo("gmail", e.target.value)
-                            } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
+                            }
+                            style={{
+                              borderRadius: "8px",
+                              borderColor: "rgba(92, 53, 26, 0.5)",
+                            }}
                           />
                         </div>
                       </div>
@@ -405,22 +430,30 @@ export const LoginPage = () => {
                       >
                         Datos de tu mascota:
                       </h2>
-                      <div style={{fontFamily: "Verdana" }} >
+                      <div style={{ fontFamily: "Verdana" }}>
                         <span>Nombre: </span>
                         <input
                           type="text"
                           placeholder="nombre"
                           onChange={(e) =>
                             handlerRegisterInfo("namePet", e.target.value)
-                          } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
+                          }
+                          style={{
+                            borderRadius: "8px",
+                            borderColor: "rgba(92, 53, 26, 0.5)",
+                          }}
                         />
                       </div>
-                      <div  style={{fontFamily: "Verdana" }}>
+                      <div style={{ fontFamily: "Verdana" }}>
                         <label>Especie: </label>
                         <select
                           onChange={(e) =>
                             handlerRegisterInfo("namePet", e.target.value)
-                          } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
+                          }
+                          style={{
+                            borderRadius: "8px",
+                            borderColor: "rgba(92, 53, 26, 0.5)",
+                          }}
                           defaultValue=""
                         >
                           <option value=""> Selecciona una especie </option>
@@ -428,22 +461,30 @@ export const LoginPage = () => {
                           <option value="gato"> Gato </option>
                         </select>
                       </div>
-                      <div style={{fontFamily: "Verdana" }}>
+                      <div style={{ fontFamily: "Verdana" }}>
                         <span>Raza: </span>
                         <input
                           type="text"
                           placeholder="raza"
                           onChange={(e) =>
                             handlerRegisterInfo("breed", e.target.value)
-                          } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
+                          }
+                          style={{
+                            borderRadius: "8px",
+                            borderColor: "rgba(92, 53, 26, 0.5)",
+                          }}
                         />
                       </div>
-                      <div  style={{fontFamily: "Verdana" }}>
+                      <div style={{ fontFamily: "Verdana" }}>
                         <label>Tamaño: </label>
                         <select
                           onChange={(e) =>
                             handlerRegisterInfo("size", e.target.value)
-                          } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
+                          }
+                          style={{
+                            borderRadius: "8px",
+                            borderColor: "rgba(92, 53, 26, 0.5)",
+                          }}
                           defaultValue=""
                         >
                           <option value=""> Selecciona un tamaño</option>
@@ -452,69 +493,82 @@ export const LoginPage = () => {
                           <option value="pequeño"> Pequeño </option>
                         </select>
                       </div>
-                      <div  style={{fontFamily: "Verdana" }}>
+                      <div style={{ fontFamily: "Verdana" }}>
                         <span>Edad: </span>
                         <input
                           type="text"
                           onChange={(e) =>
                             handlerRegisterInfo("age", e.target.value)
-                          } style={{borderRadius: '8px', borderColor: "rgba(92, 53, 26, 0.5)"}}
+                          }
+                          style={{
+                            borderRadius: "8px",
+                            borderColor: "rgba(92, 53, 26, 0.5)",
+                          }}
                         />
                       </div>
                     </div>
                   </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-evenly",
-                        gap: 30,
-                        marginTop: 20
-                      }}
-                    >
-                      <div>
-                        <button onClick={doRegister}  style={{
-                              backgroundColor: "rgba(205, 155, 101, 0.75)",
-                              padding: "5px 16px",
-                              borderRadius: "8px",
-                              border: "none",
-                              color: "#fff",
-                              fontSize: "1rem",
-                              cursor: "pointer",
-                              boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-                              transition: "transform 0.2s ease",
-                              marginTop: "20px",
-                              fontFamily: "Verdana",
-                            }}
-                            onMouseOver={(e) =>
-                              (e.currentTarget.style.transform = "scale(1.05)")
-                            }
-                            onMouseOut={(e) =>
-                              (e.currentTarget.style.transform = "scale(1)")
-                            }>Registrarme</button>
-                      </div>
-                      <div>
-                        <button onClick={goToHome} style={{
-                              backgroundColor: "rgba(227, 98, 78, 0.7)",
-                              padding: "5px 16px",
-                              borderRadius: "8px",
-                              border: "none",
-                              color: "#fff",
-                              fontSize: "1rem",
-                              cursor: "pointer",
-                              boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-                              transition: "transform 0.2s ease",
-                              marginTop: "20px",
-                              fontFamily: "Verdana",
-                            }}
-                            onMouseOver={(e) =>
-                              (e.currentTarget.style.transform = "scale(1.05)")
-                            }
-                            onMouseOut={(e) =>
-                              (e.currentTarget.style.transform = "scale(1)")
-                            }
-                          >Cancelar</button>
-                      </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-evenly",
+                      gap: 30,
+                      marginTop: 20,
+                    }}
+                  >
+                    <div>
+                      <button
+                        onClick={doRegister}
+                        style={{
+                          backgroundColor: "rgba(205, 155, 101, 0.75)",
+                          padding: "5px 16px",
+                          borderRadius: "8px",
+                          border: "none",
+                          color: "#fff",
+                          fontSize: "1rem",
+                          cursor: "pointer",
+                          boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                          transition: "transform 0.2s ease",
+                          marginTop: "20px",
+                          fontFamily: "Verdana",
+                        }}
+                        onMouseOver={(e) =>
+                          (e.currentTarget.style.transform = "scale(1.05)")
+                        }
+                        onMouseOut={(e) =>
+                          (e.currentTarget.style.transform = "scale(1)")
+                        }
+                      >
+                        Registrarme
+                      </button>
                     </div>
+                    <div>
+                      <button
+                        onClick={goToHome}
+                        style={{
+                          backgroundColor: "rgba(227, 98, 78, 0.7)",
+                          padding: "5px 16px",
+                          borderRadius: "8px",
+                          border: "none",
+                          color: "#fff",
+                          fontSize: "1rem",
+                          cursor: "pointer",
+                          boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                          transition: "transform 0.2s ease",
+                          marginTop: "20px",
+                          fontFamily: "Verdana",
+                        }}
+                        onMouseOver={(e) =>
+                          (e.currentTarget.style.transform = "scale(1.05)")
+                        }
+                        onMouseOut={(e) =>
+                          (e.currentTarget.style.transform = "scale(1)")
+                        }
+                      >
+                        Cancelar
+                      </button>
+                    </div>
+                  </div>
                 </div>
               )
             ) : (

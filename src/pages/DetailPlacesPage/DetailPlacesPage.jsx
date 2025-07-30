@@ -1,14 +1,14 @@
-import React from 'react'
-import DetailPlacesComponent from '../../components/DetailPlacesComponent/DetailPlacesComponent'
-import MenuComponent from '../../components/MenuComponent/MenuComponent'
+import React from "react";
+import DetailPlacesComponent from "../../components/DetailPlacesComponent/DetailPlacesComponent";
+import MenuComponent from "../../components/MenuComponent/MenuComponent";
 
 const DetailPlacesPage = () => {
   return (
     <div>
-        <MenuComponent/>
-        <DetailPlacesComponent/>
+      <MenuComponent />
+      <DetailPlacesComponent />
     </div>
-  )
-}
+  );
+};
 
-export default DetailPlacesPage
+export default DetailPlacesPage;

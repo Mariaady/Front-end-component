@@ -34,7 +34,7 @@ const HomePage = () => {
         style={{
           position: "relative",
           zIndex: 1,
-           padding: "4rem 2rem",
+          padding: "4rem 2rem",
           textAlign: "center",
           maxWidth: "900px",
           margin: "0 auto",
@@ -53,7 +53,7 @@ const HomePage = () => {
             src="/PawTrip Logo.png"
             alt="PawTrip Logo"
             style={{
-                width: "100px",
+              width: "100px",
               height: "auto",
             }}
           />

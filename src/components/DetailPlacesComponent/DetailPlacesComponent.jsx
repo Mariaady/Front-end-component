@@ -18,8 +18,8 @@ const DetailPlacesComponent = () => {
   const goToList = () => {
     navigate("/list");
   };
- 
-  useEffect(() => { 
+
+  useEffect(() => {
     if (!placeId) return;
     const loadPlaceDetail = async () => {
       const aux = await getPlaceDetail(placeId);
@@ -39,10 +39,10 @@ const DetailPlacesComponent = () => {
   };
 
   const deletePlaceFn = async () => {
-    await deletePlace(placeDetail._id)
-    navigate('/list')
-  }
-  
+    await deletePlace(placeDetail._id);
+    navigate("/list");
+  };
+
   return (
     <div style={{ fontFamily: "Verdana" }}>
       <h2>Todo lo que necesitas saber</h2>
@@ -93,7 +93,9 @@ const DetailPlacesComponent = () => {
               </p>
               <p style={{ margin: 0 }}> Categoría: {placeDetail.category}</p>
               <p> {placeDetail.description}</p>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: 20}}>
+              <div
+                style={{ display: "flex", justifyContent: "center", gap: 20 }}
+              >
                 <button
                   onClick={() => addBookingFn(placeDetail._id)}
                   style={{
@@ -113,22 +115,27 @@ const DetailPlacesComponent = () => {
                 >
                   Reservar
                 </button>
-              {user?.role === 'admin' && (
-                <button onClick={deletePlaceFn} style={{
-                    padding: "8px 15px",
-                    backgroundColor: "rgba(212, 61, 61, 0.8)",
-                    color: "#fff",
-                    border: "none",
-                    borderRadius: "15px",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.transform = "scale(1.02)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.transform = "scale(1)")
-                  }>Eliminar</button>
-              )}
+                {user?.role === "admin" && (
+                  <button
+                    onClick={deletePlaceFn}
+                    style={{
+                      padding: "8px 15px",
+                      backgroundColor: "rgba(212, 61, 61, 0.8)",
+                      color: "#fff",
+                      border: "none",
+                      borderRadius: "15px",
+                      cursor: "pointer",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.transform = "scale(1.02)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.transform = "scale(1)")
+                    }
+                  >
+                    Eliminar
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -148,7 +155,9 @@ const DetailPlacesComponent = () => {
                 marginTop: "20px",
                 fontFamily: "Verdana",
               }}
-              onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+              onMouseOver={(e) =>
+                (e.currentTarget.style.transform = "scale(1.05)")
+              }
               onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
             >
               Volver

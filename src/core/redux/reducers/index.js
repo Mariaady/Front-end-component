@@ -4,9 +4,9 @@ import listPlacesReducer from "../../../components/ListPlacesComponent/ListPlace
 import detailPlaceReducer from "../../../components/DetailPlacesComponent/DetailPlacesReducer";
 
 const reducer = combineReducers({
-    loginPageReducer,
-    listPlacesReducer,
-    detailPlaceReducer
-})
+  loginPageReducer,
+  listPlacesReducer,
+  detailPlaceReducer,
+});
 
-export default reducer  
+export default reducer;

@@ -16,7 +16,16 @@ const CreatePlacesPage = () => {
     });
   };
 
+  const validateCreateForm = () => {
+    const { name, location, category, description, photo } = createPlaceInfo;
+    if ((!name, !location, !category, !description, !photo)) {
+      alert("Faltan campos por rellenar");
+      return false;
+    }
+    return true;
+  };
   const doCreate = async () => {
+    if (!validateCreateForm()) return;
     const res = await createPlace(createPlaceInfo);
     navigate("/list");
   };
