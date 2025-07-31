@@ -55,11 +55,11 @@ const DetailPlacesComponent = () => {
               display: "flex",
               gap: "2rem",
               padding: "2rem",
-              border: "1px solid #ddd",
-              borderRadius: "12px",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+              border: "0.0625rem solid #ddd",
+              borderRadius: "0.75rem",
+              boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.1)",
               backgroundColor: "#fff",
-              maxWidth: "1000px",
+              maxWidth: "62.5rem",
               margin: "2rem auto",
               alignItems: "flex-start",
             }}
@@ -72,7 +72,7 @@ const DetailPlacesComponent = () => {
                   style={{
                     width: "100%",
                     height: "auto",
-                    borderRadius: "12px",
+                    borderRadius: "0.75rem",
                     objectFit: "cover",
                   }}
                 />
@@ -99,11 +99,11 @@ const DetailPlacesComponent = () => {
                 <button
                   onClick={() => addBookingFn(placeDetail._id)}
                   style={{
-                    padding: "8px 15px",
+                    padding: "0.5rem 0.9375rem",
                     backgroundColor: "rgba(122, 92, 63, 0.8)",
                     color: "#fff",
                     border: "none",
-                    borderRadius: "15px",
+                    borderRadius: "0.9375rem",
                     cursor: "pointer",
                   }}
                   onMouseEnter={(e) =>
@@ -119,11 +119,11 @@ const DetailPlacesComponent = () => {
                   <button
                     onClick={deletePlaceFn}
                     style={{
-                      padding: "8px 15px",
+                      padding: "0.5rem 0.9375rem",
                       backgroundColor: "rgba(212, 61, 61, 0.8)",
                       color: "#fff",
                       border: "none",
-                      borderRadius: "15px",
+                      borderRadius: "0.9375rem",
                       cursor: "pointer",
                     }}
                     onMouseEnter={(e) =>
@@ -144,15 +144,15 @@ const DetailPlacesComponent = () => {
               onClick={goToList}
               style={{
                 backgroundColor: "rgba(205, 155, 101, 0.7)",
-                padding: "5px 16px",
-                borderRadius: "8px",
+                padding: "0.3125rem 1rem",
+                borderRadius: "0.5rem",
                 border: "none",
                 color: "#fff",
                 fontSize: "1rem",
                 cursor: "pointer",
-                boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.3)",
                 transition: "transform 0.2s ease",
-                marginTop: "20px",
+                marginTop: "1.25rem",
                 fontFamily: "Verdana",
               }}
               onMouseOver={(e) =>

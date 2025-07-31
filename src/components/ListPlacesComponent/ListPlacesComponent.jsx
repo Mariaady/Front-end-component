@@ -58,8 +58,8 @@ const ListPlacesComponent = () => {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "20px",
-            padding: "20px",
+            gap: "1.25rem",
+            padding: "1.25rem",
           }}
         >
           {placesList.map((p, idx) => (
@@ -67,9 +67,9 @@ const ListPlacesComponent = () => {
               key={idx}
               style={{
                 backgroundColor: "#fff",
-                borderRadius: "16px",
+                borderRadius: "1rem",
                 overflow: "hidden",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                boxShadow: "0 0.25rem 0.75rem rgba(0,0,0,0.1)",
                 display: "flex",
                 flexDirection: "column",
                 transition: "transform 0.2s",
@@ -89,32 +89,32 @@ const ListPlacesComponent = () => {
                   alt={p.name}
                   style={{
                     width: "100%",
-                    height: "150px",
+                    height: "9.375rem",
                     objectFit: "cover",
                   }}
                 />
               )}
-              <div style={{ padding: "16px" }}>
+              <div style={{ padding: "1rem" }}>
                 <h3
                   style={{
-                    fontSize: "18px",
+                    fontSize: "1.125rem",
                     fontWeight: "bold",
-                    marginBottom: "8px",
+                    marginBottom: "0.5rem",
                   }}
                 >
                   {p.name}
                 </h3>
-                <p style={{ color: "#555", marginBottom: "16px" }}>
+                <p style={{ color: "#555", marginBottom: "1rem" }}>
                   <MdLocationOn />
                   {p.location}
                 </p>
                 <button
                   style={{
-                    padding: "8px 12px",
+                    padding: "0.5rem 0.75rem",
                     backgroundColor: "rgba(122, 92, 63, 0.8)",
                     color: "#fff",
                     border: "none",
-                    borderRadius: "15px",
+                    borderRadius: "0.9375rem",
                     cursor: "pointer",
                   }}
                   onMouseOver={(e) =>
@@ -136,15 +136,15 @@ const ListPlacesComponent = () => {
           onClick={goToHome}
           style={{
             backgroundColor: "rgba(205, 155, 101, 0.7)",
-            padding: "5px 16px",
-            borderRadius: "8px",
+            padding: "0.3125rem 1rem",
+            borderRadius: "0.5rem",
             border: "none",
             color: "#fff",
             fontSize: "1rem",
             cursor: "pointer",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+            boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.3)",
             transition: "transform 0.2s ease",
-            marginTop: "20px",
+            marginTop: "1.25rem",
             fontFamily: "Verdana",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}

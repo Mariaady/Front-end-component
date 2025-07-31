@@ -17,8 +17,8 @@ const MenuComponent = () => {
         gap: 50,
         backgroundColor: "#f8f9fa",
         borderRadius: 20,
-        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-        padding: "15px 30px",
+        boxShadow: "0 0.25rem 0.625rem rgba(0, 0, 0, 0.1)",
+        padding: "0.9375rem 1.875rem",
       }}
     >
       <Link
@@ -26,7 +26,7 @@ const MenuComponent = () => {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "8px",
+          gap: "0.5rem",
           color: "#030200",
           fontFamily: "Verdana",
         }}
@@ -40,7 +40,7 @@ const MenuComponent = () => {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "8px",
+          gap: "0.5rem",
           color: "#030200",
           fontFamily: "Verdana",
         }}
@@ -53,7 +53,7 @@ const MenuComponent = () => {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "8px",
+          gap: "0.5rem",
           color: "#030200",
           fontFamily: "Verdana",
         }}
@@ -66,7 +66,7 @@ const MenuComponent = () => {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "8px",
+          gap: "0.5rem",
           color: "#030200",
           fontFamily: "Verdana",
         }}
@@ -79,7 +79,7 @@ const MenuComponent = () => {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "8px",
+          gap: "0.5rem",
           color: "#030200",
           fontFamily: "Verdana",
         }}
@@ -92,7 +92,7 @@ const MenuComponent = () => {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "8px",
+          gap: "0.5rem",
           color: "#030200",
           fontFamily: "Verdana",
         }}

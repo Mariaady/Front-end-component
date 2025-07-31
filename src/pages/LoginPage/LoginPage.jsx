@@ -57,7 +57,7 @@ export const LoginPage = () => {
       alert("Por favor, asegúrese de que todos los campos han sido rellenados");
       return false;
     }
-    if (!password.length < 6) {
+    if (!password.length > 6) {
       alert("La contraseña debe contener al menos 6 carácteres");
       return false;
     }
@@ -124,14 +124,14 @@ export const LoginPage = () => {
                 <div>
                   <div
                     style={{
-                      maxWidth: "600px",
+                      maxWidth: "37.5rem",
                       width: "90%",
                       margin: "0 auto",
                       padding: "2rem",
                       paddingTop: "1rem",
                       textAlign: "center",
                       backgroundColor: "rgba(255,255,255,0.85)",
-                      transform: "translateY(-40px)",
+                      transform: "translateY(-2.5rem)",
                     }}
                   >
                     <div
@@ -148,16 +148,16 @@ export const LoginPage = () => {
                         style={{
                           top: "1rem",
                           left: "1rem",
-                          width: "160px",
+                          width: "10rem",
                           height: "auto",
                           objectFit: "contain",
                         }}
                       />
                       <h1
                         style={{
-                          fontSize: "60px",
+                          fontSize: "3.75rem",
                           color: "rgba(144, 110, 76, 0.8)",
-                          textShadow: "0 2px 8px rgba(92, 53, 26,0.4)",
+                          textShadow: "0 0.125rem 0.5rem rgba(92, 53, 26,0.4)",
                           fontFamily: "Tahoma",
                           marginBottom: "1rem",
                           fontWeight: 800,
@@ -167,7 +167,7 @@ export const LoginPage = () => {
                         <strong
                           style={{
                             color: "rgba(92, 53, 26, 0.8)",
-                            textShadow: "0 2px 8px rgba(144, 110, 76,0.6)",
+                            textShadow: "0 0.125rem 0.5rem rgba(144, 110, 76,0.6)",
                           }}
                         >
                           Trip
@@ -178,7 +178,7 @@ export const LoginPage = () => {
                       style={{
                         fontFamily: "Verdana",
                         fontWeight: 600,
-                        fontSize: "25px",
+                        fontSize: "1.5625rem",
                       }}
                     >
                       ¿Ya estás registrado?{" "}
@@ -186,14 +186,14 @@ export const LoginPage = () => {
                     <p
                       style={{
                         fontFamily: "Verdana",
-                        maxWidth: "600px",
+                        maxWidth: "37.5rem",
                         width: "96%",
                         margin: "0 auto",
                         padding: "2rem",
                         textAlign: "center",
                         backgroundColor: "rgba(255,255,255,0.85)",
-                        borderRadius: "12px",
-                        boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                        borderRadius: "0.75rem",
+                        boxShadow: "0 0.25rem 0.75rem rgba(0,0,0,0.1)",
                       }}
                     >
                       Inicia sesión para descubrir los mejores destinos
@@ -202,12 +202,12 @@ export const LoginPage = () => {
                     </p>
                     <div
                       style={{
-                        width: "320px",
-                        margin: "10px auto",
-                        padding: "20px",
+                        width: "20rem",
+                        margin: "0.625rem auto",
+                        padding: "1.25rem",
                         backgroundColor: "#fff",
-                        borderRadius: "12px",
-                        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                        borderRadius: "0.75rem",
+                        boxShadow: "0 0.25rem 0.75rem rgba(0, 0, 0, 0.1)",
                       }}
                     >
                       <div>
@@ -250,15 +250,15 @@ export const LoginPage = () => {
                             onClick={doLogin}
                             style={{
                               backgroundColor: "rgba(144, 110, 76, 0.8)",
-                              padding: "5px 16px",
-                              borderRadius: "8px",
+                              padding: "0.3125rem 1rem",
+                              borderRadius: "0.5rem",
                               border: "none",
                               color: "#fff",
                               fontSize: "1rem",
                               cursor: "pointer",
-                              boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                              boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.3)",
                               transition: "transform 0.2s ease",
-                              marginTop: "20px",
+                              marginTop: "1.25rem",
                               fontFamily: "Verdana",
                             }}
                             onMouseOver={(e) =>
@@ -276,15 +276,15 @@ export const LoginPage = () => {
                             onClick={goToHome}
                             style={{
                               backgroundColor: "rgba(255, 126, 95,0.8)",
-                              padding: "5px 16px",
-                              borderRadius: "8px",
+                              padding: "0.3125rem 1rem",
+                              borderRadius: "0.5rem",
                               border: "none",
                               color: "#fff",
                               fontSize: "1rem",
                               cursor: "pointer",
-                              boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                              boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.3)",
                               transition: "transform 0.2s ease",
-                              marginTop: "20px",
+                              marginTop: "1.25rem",
                               fontFamily: "Verdana",
                             }}
                             onMouseOver={(e) =>
@@ -311,13 +311,13 @@ export const LoginPage = () => {
                         style={{
                           fontFamily: "Verdana",
                           backgroundColor: "rgba(205, 155, 101, 0.75)",
-                          padding: "2px 10px",
-                          borderRadius: "8px",
+                          padding: "0.125rem 0.625rem",
+                          borderRadius: "0.5rem",
                           border: "none",
                           color: "#fff",
                           fontSize: "1rem",
                           cursor: "pointer",
-                          boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                          boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.3)",
                           transition: "transform 0.2s ease",
                           fontFamily: "Verdana",
                         }}
@@ -337,9 +337,9 @@ export const LoginPage = () => {
                 <div>
                   <h1
                     style={{
-                      fontSize: "60px",
+                      fontSize: "3.75rem",
                       color: "rgba(144, 110, 76, 0.8)",
-                      textShadow: "0 2px 8px rgba(92, 53, 26,0.4)",
+                      textShadow: "0 0.125rem 0.5rem rgba(92, 53, 26,0.4)",
                       fontFamily: "Tahoma",
                       marginBottom: "1rem",
                       fontWeight: 800,
@@ -349,7 +349,7 @@ export const LoginPage = () => {
                     <strong
                       style={{
                         color: "rgba(92, 53, 26, 0.8)",
-                        textShadow: "0 2px 8px rgba(144, 110, 76,0.6)",
+                        textShadow: "0 0.125rem 0.5rem rgba(144, 110, 76,0.6)",
                       }}
                     >
                       Trip
@@ -372,7 +372,7 @@ export const LoginPage = () => {
                               handlerRegisterInfo("name", e.target.value)
                             }
                             style={{
-                              borderRadius: "8px",
+                              borderRadius: "0.5rem",
                               borderColor: "rgba(92, 53, 26, 0.5)",
                             }}
                           />
@@ -386,7 +386,7 @@ export const LoginPage = () => {
                               handlerRegisterInfo("username", e.target.value)
                             }
                             style={{
-                              borderRadius: "8px",
+                              borderRadius: "0.5rem",
                               borderColor: "rgba(92, 53, 26, 0.5)",
                             }}
                           />
@@ -400,7 +400,7 @@ export const LoginPage = () => {
                               handlerRegisterInfo("password", e.target.value)
                             }
                             style={{
-                              borderRadius: "8px",
+                              borderRadius: "0.5rem",
                               borderColor: "rgba(92, 53, 26, 0.5)",
                             }}
                           />
@@ -414,7 +414,7 @@ export const LoginPage = () => {
                               handlerRegisterInfo("gmail", e.target.value)
                             }
                             style={{
-                              borderRadius: "8px",
+                              borderRadius: "0.5rem",
                               borderColor: "rgba(92, 53, 26, 0.5)",
                             }}
                           />
@@ -425,7 +425,7 @@ export const LoginPage = () => {
                         style={{
                           fontFamily: "Verdana",
                           fontWeight: 600,
-                          fontSize: "25px",
+                          fontSize: "1.5625rem",
                         }}
                       >
                         Datos de tu mascota:
@@ -439,7 +439,7 @@ export const LoginPage = () => {
                             handlerRegisterInfo("namePet", e.target.value)
                           }
                           style={{
-                            borderRadius: "8px",
+                            borderRadius: "0.5rem",
                             borderColor: "rgba(92, 53, 26, 0.5)",
                           }}
                         />
@@ -451,7 +451,7 @@ export const LoginPage = () => {
                             handlerRegisterInfo("namePet", e.target.value)
                           }
                           style={{
-                            borderRadius: "8px",
+                            borderRadius: "0.5rem",
                             borderColor: "rgba(92, 53, 26, 0.5)",
                           }}
                           defaultValue=""
@@ -470,7 +470,7 @@ export const LoginPage = () => {
                             handlerRegisterInfo("breed", e.target.value)
                           }
                           style={{
-                            borderRadius: "8px",
+                            borderRadius: "0.5rem",
                             borderColor: "rgba(92, 53, 26, 0.5)",
                           }}
                         />
@@ -482,7 +482,7 @@ export const LoginPage = () => {
                             handlerRegisterInfo("size", e.target.value)
                           }
                           style={{
-                            borderRadius: "8px",
+                            borderRadius: "0.5rem",
                             borderColor: "rgba(92, 53, 26, 0.5)",
                           }}
                           defaultValue=""
@@ -501,7 +501,7 @@ export const LoginPage = () => {
                             handlerRegisterInfo("age", e.target.value)
                           }
                           style={{
-                            borderRadius: "8px",
+                            borderRadius: "0.5rem",
                             borderColor: "rgba(92, 53, 26, 0.5)",
                           }}
                         />
@@ -521,15 +521,15 @@ export const LoginPage = () => {
                         onClick={doRegister}
                         style={{
                           backgroundColor: "rgba(205, 155, 101, 0.75)",
-                          padding: "5px 16px",
-                          borderRadius: "8px",
+                          padding: "0.3125rem 1rem",
+                          borderRadius: "0.5rem",
                           border: "none",
                           color: "#fff",
                           fontSize: "1rem",
                           cursor: "pointer",
-                          boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                          boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.3)",
                           transition: "transform 0.2s ease",
-                          marginTop: "20px",
+                          marginTop: "1.25rem",
                           fontFamily: "Verdana",
                         }}
                         onMouseOver={(e) =>
@@ -547,15 +547,15 @@ export const LoginPage = () => {
                         onClick={goToHome}
                         style={{
                           backgroundColor: "rgba(227, 98, 78, 0.7)",
-                          padding: "5px 16px",
-                          borderRadius: "8px",
+                          padding: "0.3125rem 1rem",
+                          borderRadius: "0.5rem",
                           border: "none",
                           color: "#fff",
                           fontSize: "1rem",
                           cursor: "pointer",
-                          boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                          boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.3)",
                           transition: "transform 0.2s ease",
-                          marginTop: "20px",
+                          marginTop: "1.25rem",
                           fontFamily: "Verdana",
                         }}
                         onMouseOver={(e) =>

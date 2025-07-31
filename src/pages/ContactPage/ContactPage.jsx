@@ -21,12 +21,12 @@ const ContactPage = () => {
       <div
         style={{
           fontFamily: "Verdana",
-          maxWidth: "800px",
+          maxWidth: "50rem",
           margin: "1rem auto",
           padding: "2rem",
           backgroundColor: "#fff",
-          borderRadius: "12px",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+          borderRadius: "0.75rem",
+          boxShadow: "0 0.25rem 0.75rem rgba(0,0,0,0.1)",
         }}
       >
         <h2 style={{ textAlign: "center", marginBottom: "1rem" }}>
@@ -41,7 +41,7 @@ const ContactPage = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "16px",
+            gap: "1rem",
             marginBottom: "2rem",
           }}
         >
@@ -52,10 +52,10 @@ const ContactPage = () => {
               required
               style={{
                 width: "100%",
-                padding: "8px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                marginTop: "4px",
+                padding: "0.5rem",
+                borderRadius: "0.375rem",
+                border: "0.0625rem solid #ccc",
+                marginTop: "0.25rem",
               }}
             />
           </div>
@@ -66,10 +66,10 @@ const ContactPage = () => {
               required
               style={{
                 width: "100%",
-                padding: "8px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                marginTop: "4px",
+                padding: "0.5rem",
+                borderRadius: "0.375rem",
+                border: "0.0625rem solid #ccc",
+                marginTop: "0.25rem",
               }}
             />
           </div>
@@ -80,10 +80,10 @@ const ContactPage = () => {
               required
               style={{
                 width: "100%",
-                padding: "8px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                marginTop: "4px",
+                padding: "0.5rem",
+                borderRadius: "0.375rem",
+                border: "0.0625rem solid #ccc",
+                marginTop: "0.25rem",
               }}
             />
           </div>
@@ -92,15 +92,15 @@ const ContactPage = () => {
               type="submit"
               style={{
                 width: "20%",
-                padding: "8px 15px",
+                padding: "0.5rem 0.9375rem",
                 marginTop: 15,
                 backgroundColor: "rgba(122, 92, 63, 0.8)",
                 color: "#fff",
                 border: "none",
-                borderRadius: "15px",
+                borderRadius: "0.9375rem",
                 cursor: "pointer",
                 fontSize: "1rem",
-                boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.3)",
               }}
               onMouseEnter={(e) =>
                 (e.currentTarget.style.transform = "scale(1.02)")

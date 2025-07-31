@@ -59,15 +59,15 @@ const BookingComponent = () => {
                 onClick={() => removeBookingFn(p._id)}
                 style={{
                   backgroundColor: "rgba(227, 98, 78, 0.7)",
-                  padding: "5px 16px",
-                  borderRadius: "8px",
+                  padding: "0.3125rem 1rem",
+                  borderRadius: "0.5rem",
                   border: "none",
                   color: "#fff",
                   fontSize: "1rem",
                   cursor: "pointer",
-                  boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                  boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.3)",
                   transition: "transform 0.2s ease",
-                  marginTop: "20px",
+                  marginTop: "1.25rem",
                   fontFamily: "Verdana",
                 }}
                 onMouseOver={(e) =>
@@ -88,15 +88,15 @@ const BookingComponent = () => {
           onClick={goToList}
           style={{
             backgroundColor: "rgba(205, 155, 101, 0.7)",
-            padding: "5px 16px",
-            borderRadius: "8px",
+            padding: "0.3125rem 1rem",
+            borderRadius: "0.5rem",
             border: "none",
             color: "#fff",
             fontSize: "1rem",
             cursor: "pointer",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+            boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.3)",
             transition: "transform 0.2s ease",
-            marginTop: "20px",
+            marginTop: "1.25rem",
             fontFamily: "Verdana",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}

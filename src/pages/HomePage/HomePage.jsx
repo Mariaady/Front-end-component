@@ -36,7 +36,7 @@ const HomePage = () => {
           zIndex: 1,
           padding: "4rem 2rem",
           textAlign: "center",
-          maxWidth: "900px",
+          maxWidth: "56.25rem",
           margin: "0 auto",
         }}
       >
@@ -53,7 +53,7 @@ const HomePage = () => {
             src="/PawTrip Logo.png"
             alt="PawTrip Logo"
             style={{
-              width: "100px",
+              width: "6.25rem",
               height: "auto",
             }}
           />
@@ -61,8 +61,8 @@ const HomePage = () => {
             style={{
               fontSize: "3.75rem",
               color: "rgba(144, 110, 76, 0.8)",
-              textShadow: "0 1px 4px rgba(0,0,0,0.2)",
-              letterSpacing: "1px",
+              textShadow: "0 0.0625rem 0.25rem rgba(0,0,0,0.2)",
+              letterSpacing: "0.0625rem",
               fontFamily: "Tahoma",
               marginBottom: "1rem",
               fontWeight: 800,
@@ -72,7 +72,7 @@ const HomePage = () => {
             <strong
               style={{
                 color: "rgba(92, 53, 26, 0.8)",
-                textShadow: "0 2px 8px rgba(144, 110, 76,0.6)",
+                textShadow: "0 0.125rem 0.5rem rgba(144, 110, 76,0.6)",
               }}
             >
               Trip
@@ -83,7 +83,7 @@ const HomePage = () => {
           style={{
             fontSize: "1.5rem",
             marginBottom: "1rem",
-            textShadow: "0 2px 6px rgba(0,0,0,0.2)",
+            textShadow: "0 0.125rem 0.375rem rgba(0,0,0,0.2)",
             fontFamily: "Verdana",
             fontWeight: 600,
           }}
@@ -118,12 +118,12 @@ const HomePage = () => {
             style={{
               backgroundColor: "rgba(122, 92, 63, 0.8)",
               padding: "0.8rem 2rem",
-              borderRadius: "8px",
+              borderRadius: "0.5rem",
               border: "none",
               color: "#fff",
               fontSize: "1rem",
               cursor: "pointer",
-              boxShadow: "0 6px 16px rgba(0,0,0,0.2)",
+              boxShadow: "0 0.375rem 1rem rgba(0,0,0,0.2)",
               transition: "transform 0.2s ease",
               display: "inline-block",
             }}

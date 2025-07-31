@@ -44,7 +44,7 @@ const CreatePlacesPage = () => {
         style={{
           width: "50%",
           display: "flex",
-          padding: "40px",
+          padding: "2.5rem",
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "#f5f5f5",
@@ -57,27 +57,27 @@ const CreatePlacesPage = () => {
             width: "100vh",
             height: "100%",
             objectFit: "cover",
-            borderRadius: "8px",
+            borderRadius: "0.5rem",
             opacity: 0.5,
             backgroundColor: "#fff",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+            boxShadow: "0 0.25rem 0.75rem rgba(0,0,0,0.1)",
           }}
         />
       </div>
       <div
         style={{
           width: "50%",
-          padding: "40px",
+          padding: "2.5rem",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           backgroundColor: "#fff",
-          borderRadius: "12px",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+          borderRadius: "0.75rem",
+          boxShadow: "0 0.25rem 0.75rem rgba(0,0,0,0.1)",
         }}
       >
         <h2
-          style={{ fontWeight: "bold", fontSize: "28px", marginBottom: "20px" }}
+          style={{ fontWeight: "bold", fontSize: "1.75rem", marginBottom: "1.25rem" }}
         >
           AÑADE UN NUEVO LUGAR:
         </h2>
@@ -88,7 +88,7 @@ const CreatePlacesPage = () => {
               type="text"
               onChange={(e) => createPlaceHandler("name", e.target.value)}
               style={{
-                borderRadius: "8px",
+                borderRadius: "0.5rem",
                 borderColor: "rgba(92, 53, 26, 0.5)",
                 marginLeft: 10,
               }}
@@ -100,7 +100,7 @@ const CreatePlacesPage = () => {
               type="text"
               onChange={(e) => createPlaceHandler("location", e.target.value)}
               style={{
-                borderRadius: "8px",
+                borderRadius: "0.5rem",
                 borderColor: "rgba(92, 53, 26, 0.5)",
                 marginLeft: 10,
               }}
@@ -112,7 +112,7 @@ const CreatePlacesPage = () => {
               onChange={(e) => createPlaceHandler("category", e.target.value)}
               defaultValue=""
               style={{
-                borderRadius: "8px",
+                borderRadius: "0.5rem",
                 borderColor: "rgba(92, 53, 26, 0.5)",
                 marginLeft: 10,
               }}
@@ -135,7 +135,7 @@ const CreatePlacesPage = () => {
                 createPlaceHandler("description", e.target.value)
               }
               style={{
-                borderRadius: "8px",
+                borderRadius: "0.5rem",
                 borderColor: "rgba(92, 53, 26, 0.5)",
                 marginLeft: 10,
               }}
@@ -147,7 +147,7 @@ const CreatePlacesPage = () => {
               type="text"
               onChange={(e) => createPlaceHandler("photo", e.target.value)}
               style={{
-                borderRadius: "8px",
+                borderRadius: "0.5rem",
                 borderColor: "rgba(92, 53, 26, 0.5)",
                 marginLeft: 10,
               }}
@@ -166,15 +166,15 @@ const CreatePlacesPage = () => {
             onClick={doCreate}
             style={{
               backgroundColor: "rgba(205, 155, 101, 0.75)",
-              padding: "5px 16px",
-              borderRadius: "8px",
+              padding: "0.3125rem 1rem",
+              borderRadius: "0.5rem",
               border: "none",
               color: "#fff",
               fontSize: "1rem",
               cursor: "pointer",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+              boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.3)",
               transition: "transform 0.2s ease",
-              marginTop: "20px",
+              marginTop: "1.25rem",
               fontFamily: "Verdana",
             }}
             onMouseOver={(e) =>
@@ -188,15 +188,15 @@ const CreatePlacesPage = () => {
             onClick={cancel}
             style={{
               backgroundColor: "rgba(227, 98, 78, 0.7)",
-              padding: "5px 16px",
-              borderRadius: "8px",
+              padding: "0.3125rem 1rem",
+              borderRadius: "0.5rem",
               border: "none",
               color: "#fff",
               fontSize: "1rem",
               cursor: "pointer",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+              boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.3)",
               transition: "transform 0.2s ease",
-              marginTop: "20px",
+              marginTop: "1.25rem",
               fontFamily: "Verdana",
             }}
             onMouseOver={(e) =>
