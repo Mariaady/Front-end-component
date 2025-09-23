@@ -1,5 +1,5 @@
 export const doLoginBack = async (loginInfo) => {
-  const response = await fetch("http://localhost:3000/user", {
+  const response = await fetch("http://localhost:3000/user/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -20,9 +20,7 @@ export const createUser = async (newUser) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      newUser,
-    }),
+    body: JSON.stringify(newUser),
   });
   const result = await res.json();
   return result.user;

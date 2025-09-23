@@ -67,8 +67,8 @@ export const LoginPage = () => {
   const doLogin = async () => {
     if (!validateLoginFields()) return;
     const res = await doLoginBack(loginInfo);
-    if (!res || !res.token || !res.user) {
-      alert("Usuario o contraseña incorrectos");
+    if (res.error) {
+      alert(res.error);
       return;
     }
     localStorage.setItem("token", res.token);
@@ -167,7 +167,8 @@ export const LoginPage = () => {
                         <strong
                           style={{
                             color: "rgba(92, 53, 26, 0.8)",
-                            textShadow: "0 0.125rem 0.5rem rgba(144, 110, 76,0.6)",
+                            textShadow:
+                              "0 0.125rem 0.5rem rgba(144, 110, 76,0.6)",
                           }}
                         >
                           Trip
