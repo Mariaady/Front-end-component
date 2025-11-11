@@ -57,7 +57,7 @@ export const LoginPage = () => {
       alert("Por favor, asegúrese de que todos los campos han sido rellenados");
       return false;
     }
-    if (!password.length > 6) {
+    if (password.length < 6) {
       alert("La contraseña debe contener al menos 6 carácteres");
       return false;
     }
@@ -72,6 +72,7 @@ export const LoginPage = () => {
       return;
     }
     localStorage.setItem("token", res.token);
+    localStorage.setItem("refreshToken", res.refreshToken);
     dispatch(
       doLoginActions({
         user: res.user,
@@ -83,6 +84,12 @@ export const LoginPage = () => {
   const doRegister = async () => {
     if (!validateRegisterFields()) return;
     const res = await createUser(registerInfo);
+    if (res.error) {
+      alert(res.error);
+      return;
+    }
+    localStorage.setItem("token", res.token);
+    localStorage.setItem("refreshToken", res.refreshToken);
     dispatch(
       doLoginActions({
         user: res,

@@ -11,7 +11,12 @@ export const doLoginBack = async (loginInfo) => {
   });
 
   const res = await response.json();
-  return res;
+  if (res.error) return { error: res.error };
+  return {
+    user: res.user,
+    token: res.token,
+    refreshToken: res.refreshToken,
+  };
 };
 
 export const createUser = async (newUser) => {
@@ -23,22 +28,25 @@ export const createUser = async (newUser) => {
     body: JSON.stringify(newUser),
   });
   const result = await res.json();
-  return result.user;
+  if (result.error) return { error: result.error };
+  return {
+    user: result.user,
+    token: result.token,
+    refreshToken: result.refreshToken,
+  };
 };
 
 export const modifyUser = async (user) => {
   const res = await fetch(`http://localhost:3000/user/modify/${user.id}`, {
-    method: "POST",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      user,
-    }),
+    body: JSON.stringify(user),
   });
   const result = await res.json();
-  const modifiedUser = result.user;
-  return modifiedUser;
+  if (result.error) return { error: result.error };
+  return result.user;
 };
 
 export const addBooking = async (userId, placeId) => {
@@ -53,7 +61,8 @@ export const addBooking = async (userId, placeId) => {
     }),
   });
   const result = await res.json();
-  return result;
+  if (result.error) return { error: result.error };
+  return result.user;
 };
 
 export const removeBooking = async (userId, placeId) => {
@@ -68,5 +77,18 @@ export const removeBooking = async (userId, placeId) => {
     }),
   });
   const result = await res.json();
-  return result;
+  if (result.error) return { error: result.error };
+  return result.user;
+};
+
+export const getUserFromToken = async (token) => {
+  const res = await fetch("http://localhost:3000/user/getUser", {
+    headers: {
+      "Content-Type": "application/json",
+      "auth-token": token,
+    },
+  });
+  if (!res.ok) return null;
+  const result = await res.json();
+  return result.user;
 };
