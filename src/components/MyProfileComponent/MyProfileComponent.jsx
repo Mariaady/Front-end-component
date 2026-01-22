@@ -312,6 +312,23 @@ const MyProfileComponent = () => {
             Modificar
           </button>
           <button
+            style={{
+              backgroundColor: "rgba(212, 61, 61, 0.8)",
+              padding: "0.3125rem 1rem",
+              borderRadius: "0.5rem",
+              border: "none",
+              color: "#fff",
+              fontSize: "1rem",
+              cursor: "pointer",
+              boxShadow: "0 0.25rem 0.625rem rgba(0,0,0,0.3)",
+              transition: "transform 0.2s ease",
+              marginTop: "1.25rem",
+              fontFamily: "Verdana",
+            }}
+          >
+            Eliminar usuario
+          </button>
+          <button
             onClick={gotoList}
             style={{
               backgroundColor: "rgba(205, 155, 101, 0.7)",

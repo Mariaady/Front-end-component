@@ -22,10 +22,10 @@ const BookingComponent = () => {
   };
 
   const removeBookingFn = async (placeId) => {
-    const res = await removeBooking(user.id, placeId);
+    const res = await removeBooking(user._id, placeId);
     dispatch(
       loadInfoActions({
-        user: res.user,
+        user: res,
       })
     );
   };

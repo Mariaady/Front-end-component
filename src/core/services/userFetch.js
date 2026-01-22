@@ -37,7 +37,7 @@ export const createUser = async (newUser) => {
 };
 
 export const modifyUser = async (user) => {
-  const res = await fetch(`http://localhost:3000/user/modify/${user.id}`, {
+  const res = await fetch(`http://localhost:3000/user/modify/${user._id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

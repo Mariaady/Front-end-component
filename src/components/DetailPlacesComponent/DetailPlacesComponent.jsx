@@ -32,7 +32,7 @@ const DetailPlacesComponent = () => {
     const res = await addBooking(user.id, placeId);
     dispatch(
       loadInfoActions({
-        user: res.user,
+        user: res,
       })
     );
     navigate("/booking");
